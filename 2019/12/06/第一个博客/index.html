@@ -1,268 +1,365 @@
 <!DOCTYPE html>
 <html lang="zh-Hans">
 <head>
-    <meta charset="UTF-8">
-<meta name="viewport"
-      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-<meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
 
-    <meta name="author" content="Yezhilong">
-
-
-    <meta name="subtitle" content="个人博客">
-
-
-    <meta name="description" content="记录生活和学习，做自己喜欢的事">
+<link rel="stylesheet" href="/css/main.css">
 
 
-
-<title>第一个博客 | 叶智龙</title>
-
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 
 
-    <link rel="icon" href="/favicon.ico">
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    hostname: new URL('http://yoursite.com').hostname,
+    root: '/',
+    scheme: 'Muse',
+    version: '7.6.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}
+  };
+</script>
+
+  <meta name="description" content="title :第一个博客这是我第一个博客，于2019年12月6日写的第一篇，虽然现在博客功能不完善，界面不美观，但会尽力想方设法地去完善。感觉目前也没有人会访问这个博客 这个博客从建立hexo框架，nodejs语言环境，再用GitHub的库，实现了开创我的第一个网页，而且还是免费的。图片用了阿里云来储存（1块钱6个月），域名好贵，不打算再去租一个域名了。再后来用了HexoEditor这个编辑器来">
+<meta property="og:type" content="article">
+<meta property="og:title" content="第一个博客">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;06&#x2F;%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2&#x2F;index.html">
+<meta property="og:site_name" content="叶智龙">
+<meta property="og:description" content="title :第一个博客这是我第一个博客，于2019年12月6日写的第一篇，虽然现在博客功能不完善，界面不美观，但会尽力想方设法地去完善。感觉目前也没有人会访问这个博客 这个博客从建立hexo框架，nodejs语言环境，再用GitHub的库，实现了开创我的第一个网页，而且还是免费的。图片用了阿里云来储存（1块钱6个月），域名好贵，不打算再去租一个域名了。再后来用了HexoEditor这个编辑器来">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-12-06T08:52:37.215Z">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://yoursite.com/2019/12/06/%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>第一个博客 | 叶智龙</title>
+  
 
 
 
 
-    <!-- stylesheets list from _config.yml -->
-    
-    <link rel="stylesheet" href="/css/style.css">
-    
 
 
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
 
-    <!-- scripts list from _config.yml -->
-    
-    <script src="/js/script.js"></script>
-    
-    <script src="/js/tocbot.min.js"></script>
-    
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
 
-
-
-    
-    
-        
-    
-
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
 
 </head>
-<body>
-    <div class="wrapper">
-        <header>
-    <nav class="navbar">
-        <div class="container">
-            <div class="navbar-header header-logo"><a href="/">YeZhilong&#39;s Blog</a></div>
-            <div class="menu navbar-right">
-                
-                    <a class="menu-item" href="/archives">Posts</a>
-                
-                    <a class="menu-item" href="/category">Categories</a>
-                
-                    <a class="menu-item" href="/tag">Tags</a>
-                
-                    <a class="menu-item" href="/about">About</a>
-                
-                <input id="switch_default" type="checkbox" class="switch_default">
-                <label for="switch_default" class="toggleBtn"></label>
-            </div>
 
-        </div>
-    </nav>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
 
-    
-    <nav class="navbar-mobile" id="nav-mobile">
-        <div class="container">
-            <div class="navbar-header">
-                <div>
-                    <a href="/">YeZhilong&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
-                </div>
-                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
-            </div>
-            <div class="menu" id="mobile-menu">
-                
-                    <a class="menu-item" href="/archives">Posts</a>
-                
-                    <a class="menu-item" href="/category">Categories</a>
-                
-                    <a class="menu-item" href="/tag">Tags</a>
-                
-                    <a class="menu-item" href="/about">About</a>
-                
-            </div>
-        </div>
-    </nav>
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
 
-</header>
-<script>
-    var mobileBtn = function f() {
-        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
-        var mobileMenu = document.getElementById("mobile-menu");
-        if(toggleMenu.classList.contains("active")){
-           toggleMenu.classList.remove("active")
-            mobileMenu.classList.remove("active")
-        }else{
-            toggleMenu.classList.add("active")
-            mobileMenu.classList.add("active")
-        }
-    }
-</script>
-        <div class="main">
-            <div class="container">
-    
-    
-        <div class="post-toc">
-    <div class="tocbot-list">
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">叶智龙</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
     </div>
-    <div class="tocbot-list-menu">
-        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
-        <a onclick="go_top()">Back to top</a>
-        <a onclick="go_bottom()">Go to bottom</a>
+        <p class="site-subtitle">个人博客</p>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Navigationsleiste an/ausschalten">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
     </div>
+  </div>
 </div>
 
-<script>
-    document.ready(
-        function () {
-            tocbot.init({
-                tocSelector: '.tocbot-list',
-                contentSelector: '.post-content',
-                headingSelector: 'h1, h2, h3, h4, h5',
-                collapseDepth: 1,
-                orderedList: false,
-                scrollSmooth: true,
-            })
-        }
-    )
 
-    function expand_toc() {
-        var b = document.querySelector(".tocbot-toc-expand");
-        tocbot.init({
-            tocSelector: '.tocbot-list',
-            contentSelector: '.post-content',
-            headingSelector: 'h1, h2, h3, h4, h5',
-            collapseDepth: 6,
-            orderedList: false,
-            scrollSmooth: true,
-        });
-        b.setAttribute("onclick", "collapse_toc()");
-        b.innerHTML = "Collapse all"
-    }
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
 
-    function collapse_toc() {
-        var b = document.querySelector(".tocbot-toc-expand");
-        tocbot.init({
-            tocSelector: '.tocbot-list',
-            contentSelector: '.post-content',
-            headingSelector: 'h1, h2, h3, h4, h5',
-            collapseDepth: 1,
-            orderedList: false,
-            scrollSmooth: true,
-        });
-        b.setAttribute("onclick", "expand_toc()");
-        b.innerHTML = "Expand all"
-    }
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Startseite</a>
 
-    function go_top() {
-        window.scrollTo(0, 0);
-    }
+  </li>
+        <li class="menu-item menu-item-archives">
 
-    function go_bottom() {
-        window.scrollTo(0, document.body.scrollHeight);
-    }
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archiv</a>
 
-</script>
-    
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
 
     
-    <article class="post-wrap">
-        <header class="post-header">
-            <h1 class="post-title">第一个博客</h1>
-            
-                <div class="post-meta">
-                    
-                        Author: <a itemprop="author" rel="author" href="/">Yezhilong</a>
-                    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
 
-                    
-                        <span class="post-time">
-                        Date: <a href="#">December 6, 2019&nbsp;&nbsp;16:52:37</a>
-                        </span>
-                    
-                    
-                </div>
-            
-        </header>
 
-        <div class="post-content">
-            <hr>
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/06/%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Yezhilong">
+      <meta itemprop="description" content="记录生活和学习，做自己喜欢的事">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="叶智龙">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          第一个博客
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Veröffentlicht am</span>
+
+              <time title="Erstellt: 2019-12-06 16:52:37" itemprop="dateCreated datePublished" datetime="2019-12-06T16:52:37+08:00">2019-12-06</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <hr>
 <h2 id="title-第一个博客"><a href="#title-第一个博客" class="headerlink" title="title :第一个博客"></a>title :第一个博客</h2><p>这是我第一个博客，于2019年12月6日写的第一篇，虽然现在博客功能不完善，界面不美观，但会尽力想方设法地去完善。<br>感觉目前也没有人会访问这个博客</p>
 <p>这个博客从建立hexo框架，nodejs语言环境，再用GitHub的库，实现了开创我的第一个网页，而且还是免费的。图片用了阿里云来储存（1块钱6个月），域名好贵，不打算再去租一个域名了。再后来用了HexoEditor这个编辑器来编写内容，但是效果没有和介绍的哪样（可能是我设置没有弄好的原因，又或者是这款编辑器适合于next主题）。这所有过程疯狂的出现各种错误，无数次的百度，看别人的解决方法，无数次翻他们的博客。那个HexoEditor中途有点想放弃的感觉，但不想白费自己前面的所画的时间。两次成功的时候都内心无比的快乐：一次是打开了网页看到hello world，一次是打开了HexoEditor编辑器。</p>
 <p>##这个博客下个优化计划<br>菜单分类，图片布局，字体设置。<br>打赏功能<br>###博客的久远优化计划<br>1.界面美化，有个博客贼有创意：一个超可爱的二次元动漫动态图片在左下角，她会看着你的光标，光标移到哪里她就看哪里，当你的光标移到她那转来转去，她会很害羞地看着你。<br>2.设置访客数量与评论界面<br>3.设置到百度等搜索引擎上可以搜索得到与我博客相关内容</p>
 
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2019/12/06/%E8%A7%89%E5%BE%97OK%E5%8F%AF%E4%BB%A5%E8%AF%B7%E4%BD%9C%E8%80%85%E5%96%9D%E5%92%96%E5%95%A1/" rel="prev" title="如果觉得OK可以请作者喝咖啡">
+      <i class="fa fa-chevron-left"></i> 如果觉得OK可以请作者喝咖啡
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
         </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
 
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Inhaltsverzeichnis
+        </li>
+        <li class="sidebar-nav-overview">
+          Übersicht
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#title-第一个博客"><span class="nav-number">1.</span> <span class="nav-text">title :第一个博客</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Yezhilong</p>
+  <div class="site-description" itemprop="description">记录生活和学习，做自己喜欢的事</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
         
-            <section class="post-copyright">
-                
-                    <p class="copyright-item">
-                        <span>Author:</span>
-                        <span>Yezhilong</span>
-                    </p>
-                
-                
-                    <p class="copyright-item">
-                        <span>Permalink:</span>
-                        <span><a href="http://yoursite.com/2019/12/06/%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2/">http://yoursite.com/2019/12/06/%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2/</a></span>
-                    </p>
-                
-                
-                    <p class="copyright-item">
-                        <span>License:</span>
-                        <span>Copyright (c) 2019 <a href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC-BY-NC-4.0</a> LICENSE</span>
-                    </p>
-                
-                
-                     <p class="copyright-item">
-                         <span>Slogan:</span>
-                         <span>Do you believe in <strong>DESTINY<strong>?</span>
-                     </p>
-                
-
-            </section>
-        
-        <section class="post-tags">
-            <div>
-                <span>Tag(s):</span>
-                <span class="tag">
-                    
-                </span>
-            </div>
-            <div>
-                <a href="javascript:window.history.back();" target="_blank" rel="noopener">back</a>
-                <span>· </span>
-                <a href="/">home</a>
-            </div>
-        </section>
-        <section class="post-nav">
-            
-            
-            <a class="next" rel="next" href="/2019/12/06/%E8%A7%89%E5%BE%97OK%E5%8F%AF%E4%BB%A5%E8%AF%B7%E4%BD%9C%E8%80%85%E5%96%9D%E5%92%96%E5%95%A1/">如果觉得OK可以请作者喝咖啡</a>
-            
-        </section>
-
-
-    </article>
+          <span class="site-state-item-count">2</span>
+          <span class="site-state-item-name">Artikel</span>
+        </a>
+      </div>
+  </nav>
 </div>
 
-        </div>
-        <footer id="footer" class="footer">
-    <div class="copyright">
-        <span>© Yezhilong | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
-    </div>
-</footer>
+
+
+      </div>
 
     </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Yezhilong</span>
+</div>
+  <div class="powered-by">Erstellt mit  <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> v4.0.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">Design – <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.6.0
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/muse.js"></script>
+<script src="/js/next-boot.js"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
 </body>
 </html>
