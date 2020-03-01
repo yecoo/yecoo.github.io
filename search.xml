@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>第一个博客</title>
+    <url>/2019/12/06/%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2/</url>
+    <content><![CDATA[<p>这是我第一个博客，于2019年12月6日写的第一篇，虽然现在博客功能不完善，界面不美观，但会尽力想方设法地去完善。<br>感觉目前也没有人会访问这个博客</p>
+<p>这个博客从建立hexo框架，nodejs语言环境，再用GitHub的库，实现了开创我的第一个网页，而且还是免费的。图片用了阿里云来储存（1块钱6个月），域名好贵，不打算再去租一个域名了。再后来用了HexoEditor这个编辑器来编写内容，但是效果没有和介绍的哪样（可能是我设置没有弄好的原因，又或者是这款编辑器适合于next主题）。这所有过程疯狂的出现各种错误，无数次的百度，看别人的解决方法，无数次翻他们的博客。那个HexoEditor中途有点想放弃的感觉，但不想白费自己前面的所画的时间。两次成功的时候都内心无比的快乐：一次是打开了网页看到hello world，一次是打开了HexoEditor编辑器。</p>
+<p>##这个博客下个优化计划<br>菜单分类，图片布局，字体设置。<br>打赏功能<br>###博客的久远优化计划<br>1.界面美化，有个博客贼有创意：一个超可爱的二次元动漫动态图片在左下角，她会看着你的光标，光标移到哪里她就看哪里，当你的光标移到她那转来转去，她会很害羞地看着你。<br>2.设置访客数量与评论界面<br>3.设置到百度等搜索引擎上可以搜索得到与我博客相关内容</p>
+]]></content>
+      <categories>
+        <category>life</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>如果觉得OK可以请作者喝咖啡</title>
+    <url>/2019/12/06/%E8%A7%89%E5%BE%97OK%E5%8F%AF%E4%BB%A5%E8%AF%B7%E4%BD%9C%E8%80%85%E5%96%9D%E5%92%96%E5%95%A1/</url>
+    <content><![CDATA[<pre><code>如果觉得OK可以请作者喝咖啡</code></pre><p>tag:<img src="https://hexo-1300845384.cos.ap-guangzhou.myqcloud.com/alipay.jpg" width = "200" height = "200" div align=right /></p>
+]]></content>
+  </entry>
+</search>
