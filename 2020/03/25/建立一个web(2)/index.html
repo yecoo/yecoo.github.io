@@ -45,17 +45,17 @@
   };
 </script>
 
-  <meta property="og:type" content="article">
-<meta property="og:title" content="test图片">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;04&#x2F;05&#x2F;test%E5%9B%BE%E7%89%87&#x2F;index.html">
+  <meta name="description" content="在centos中安装mysql数据库一，安装YUM Repo1.由于CentOS 的yum源中没有mysql，需要到mysql的官网下载yum repo配置文件。命令wget https:&#x2F;&#x2F;dev.mysql.com&#x2F;get&#x2F;mysql57-community-release-el7-9.noarch.rpm2.然后进行repo的安装rpm -ivh mysql57-community-rele">
+<meta property="og:type" content="article">
+<meta property="og:title" content="建立一个web（2）">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;03&#x2F;25&#x2F;%E5%BB%BA%E7%AB%8B%E4%B8%80%E4%B8%AAweb(2)&#x2F;index.html">
 <meta property="og:site_name" content="叶智龙">
+<meta property="og:description" content="在centos中安装mysql数据库一，安装YUM Repo1.由于CentOS 的yum源中没有mysql，需要到mysql的官网下载yum repo配置文件。命令wget https:&#x2F;&#x2F;dev.mysql.com&#x2F;get&#x2F;mysql57-community-release-el7-9.noarch.rpm2.然后进行repo的安装rpm -ivh mysql57-community-rele">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https:&#x2F;&#x2F;hexo-1300845384.cos.ap-guangzhou.myqcloud.com&#x2F;test.jpg">
-<meta property="og:updated_time" content="2020-04-05T09:08:01.073Z">
+<meta property="og:updated_time" content="2020-03-25T01:30:08.681Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https:&#x2F;&#x2F;hexo-1300845384.cos.ap-guangzhou.myqcloud.com&#x2F;test.jpg">
 
-<link rel="canonical" href="http://yoursite.com/2020/04/05/test%E5%9B%BE%E7%89%87/">
+<link rel="canonical" href="http://yoursite.com/2020/03/25/%E5%BB%BA%E7%AB%8B%E4%B8%80%E4%B8%AAweb(2)/">
 
 
 <script id="page-configurations">
@@ -69,7 +69,7 @@
   };
 </script>
 
-  <title>test图片 | 叶智龙</title>
+  <title>建立一个web（2） | 叶智龙</title>
   
 
 
@@ -209,7 +209,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/05/test%E5%9B%BE%E7%89%87/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/25/%E5%BB%BA%E7%AB%8B%E4%B8%80%E4%B8%AAweb(2)/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/head.png">
@@ -222,7 +222,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          test图片
+          建立一个web（2）
         </h1>
 
         <div class="post-meta">
@@ -232,7 +232,18 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2020-04-05 17:08:01" itemprop="dateCreated datePublished" datetime="2020-04-05T17:08:01+08:00">2020-04-05</time>
+              <time title="创建时间：2020-03-25 09:30:08" itemprop="dateCreated datePublished" datetime="2020-03-25T09:30:08+08:00">2020-03-25</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/web/" itemprop="url" rel="index">
+                    <span itemprop="name">web</span>
+                  </a>
+                </span>
             </span>
 
           
@@ -246,7 +257,13 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p><img src="https://hexo-1300845384.cos.ap-guangzhou.myqcloud.com/test.jpg" alt=""></p>
+        <p>在centos中安装mysql数据库<br>一，安装YUM Repo<br>1.由于CentOS 的yum源中没有mysql，需要到mysql的官网下载yum repo配置文件。<br>命令<br>wget <a href="https://dev.mysql.com/get/mysql57-community-release-el7-9.noarch.rpm" target="_blank" rel="noopener">https://dev.mysql.com/get/mysql57-community-release-el7-9.noarch.rpm</a><br>2.然后进行repo的安装<br>rpm -ivh mysql57-community-release-el7-9.noarch.rpm<br>执行完成后会在/etc/yum.repos.d/目录下生成两个repo文件mysql-community.repo mysql-community-source.repo</p>
+<p>二，使用yum命令即可完成安装<br>进入/etc/yum.repos.d/目录下输入命令<br>1.安装命令<br>yum install mysql-server<br>2.启动mysql<br>systemctl start mysqld<br>3.查看MySQL运行状态<br>systemctl status mysqld.service<br>看到active(running)时，mysql已经正常运行<br>4.获取安装时候的初始密码<br>grep “password” /var/log/mysqld.log</p>
+<p>三，登录<br>mysql -u root -p</p>
+<p>然后输入密码（刚刚获取的临时密码），输入密码时候，密码是不显示的，建议一个一个认真对着输入</p>
+<p>四，登录成功后修改密码<br>注意：这里会进行密码强度校验（密码设置时必须包含大小写字母、特殊符号、数字，并且长度大于8位）如不满足以上条件则会报错<br>命令<br>ALTER USER ‘root’@’localhost’ IDENTIFIED BY ‘new password’;</p>
+<p>在new password那位置写新密码</p>
+<p>mysql有关的命令<br>连接服务器: mysql -u root -p<br>看当前所有数据库：show databases;<br>进入mysql数据库：use mysql;<br>查看mysql数据库中所有的表：show tables;<br>查看user表中的数据：select Host, User,Password from user;<br>修改user表中的Host:   update user set Host=’%’ where User=’root’;<br>（说明： % 代表任意的客户端,可替换成具体IP地址。）<br>最后刷新一下：flush privileges;<br>注意：一定要记得在写sql的时候要在语句完成后加上” ; “</p>
 
     </div>
 
@@ -282,10 +299,13 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/04/01/%E5%BB%BA%E7%AB%8B%E4%B8%80%E4%B8%AAweb%EF%BC%882%EF%BC%89/" rel="prev" title="建立一个web（2）">
-      <i class="fa fa-chevron-left"></i> 建立一个web（2）
+    <a href="/2019/12/06/%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2/" rel="prev" title="第一个博客">
+      <i class="fa fa-chevron-left"></i> 第一个博客
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2020/03/25/%E5%BB%BA%E7%AB%8B%E4%B8%80%E4%B8%AAweb(1)/" rel="next" title="建立一个web（1）">
+      建立一个web（1） <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
