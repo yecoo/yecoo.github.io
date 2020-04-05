@@ -1,6 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>test图片</title>
+    <url>/2020/04/05/test%E5%9B%BE%E7%89%87/</url>
+    <content><![CDATA[<p><img src="https://hexo-1300845384.cos.ap-guangzhou.myqcloud.com/test.jpg" alt=""></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>建立一个web（2）</title>
+    <url>/2020/04/01/%E5%BB%BA%E7%AB%8B%E4%B8%80%E4%B8%AAweb%EF%BC%882%EF%BC%89/</url>
+    <content><![CDATA[<p>刚开始想的是用lamp的Linux+apache+mysql+php环境搭建，因为在本地的xampp（只有apache和mysql）非常顺利的运行起来了，所以我没有用源码博主推荐的nginx。<br>于是我开始手动搭建lamp环境，按照腾讯云所给的文档中心<a href="https://cloud.tencent.com/document/product/213/10912" target="_blank" rel="noopener">https://cloud.tencent.com/document/product/213/10912</a><br>搭建起来很顺利，但十分耗费时间精力，不过每个过程成功的时候都很庆幸，后来问题不断地出现。直到都不知道怎么百度解决了，百度搜出来的是各种各样的不相关的解决方案，而于此同时我也在各个地方东改西改，导致apache都运行不起来了。</p>
+<p>一气之下把系统重装了，然后尝试去用镜像市场里面已经搭建好的lnmp环境，如果你用镜像市场的环境，按照腾讯云的文档中心一步步安装好后，第一时间可以输入域名，这是最重要的一步，里面有开发向导和帮助，这个镜像是一个公司提供的免费镜像，一般都很自动化，但当时我不知道可以在开发向导看数据库密码，于是乎百度的答案又跟实际不一样，然后傻傻的把镜像里的mysql数据库全删了，自己又费劲重新配置了个mysql数据库，然后一切弄好后，发现又不行了，可能是因为修改了这个镜像系统的数据库的东西导致不兼容或者什么的。</p>
+<p>于是乎又重装系统。再来一遍，又找了个Lnmp镜像，这次我吸取经验教训，从网页进入域名，进入开发向导一步步配置，然后到虚拟主机那一步的时候又卡住了，这一步主要是用来多个域名绑定到同个源码项目，但我没域名啊。因为就租了2个月，腾讯云那边不给，于是乎各种百度搜索，各种尝试，一遍遍地输入。最后失败告终。每次都快要放弃了，但觉得不行，总是一事无成的样子。加上对游戏也没有那么的狂热了，有事没事就弄一弄。</p>
+<p>后来想到去淘宝，还真的有花钱解决服务各种问题，但是这个店主他嫌麻烦就说这个问题麻烦要更贵的价格解决，如果你出50元帮你在成功部署源码项目，我觉得这就很没意思，他用的是在centos环境下的宝塔控制面板，就是很兼容很方便操作各种软件环境，很好用的一个平台，于是乎，我又重装系统（宝塔的要求是系统是纯净的），重装了个centos7，宝塔也配置好了，但这次连网页都连不上了，也是同样的各种百度各种尝试。大量时间卡在了端口上，宝塔上的配置和我在腾讯云上的安全组和我在服务器上的配置端口都不一样，搞毛线。心中怒火一上mmp。</p>
+<p>于是乎又重装了系统。这次的思路是本地是用xampp环境的，那么我在centos也同样可以，于是乎成功了，虽然遇到和之前同样的问题，但这次幸运的找到了好多有用的知识点和解决方法，成功搭建起来了网页。</p>
+]]></content>
+      <categories>
+        <category>web</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>建立一个web（1）</title>
+    <url>/2020/03/25/%E5%BB%BA%E7%AB%8B%E4%B8%80%E4%B8%AAweb%EF%BC%881%EF%BC%89/</url>
+    <content><![CDATA[<p>大创这个项目是建立一个论坛，之前挺有一些基础的，所以实操起来有方向<br>首先是要储备一些基础知识，然后记得把所有的用户信息和密码记得用个txt记录下来，避免出现用户名密码或者端口地址等重要信息忘记了<br>一，租一个云服务器和域名，我用的是学生优惠，总共花了36元两个月，在服务器上设置安全组，开放HTTP，HTTPS，SSH,FTP等等服务，然后再进入系统内，我的系统默认防火墙没开启，然后手动把防火墙开启比较安全吧，然后防火墙需要开发端口给HTTP和HTTPS，这样外部才能访问到网页。<br>二，下载Xshell用于ssh远程命令操作服务器，还有winscp用于ftp远程传输文件<br>可以放一个html文件试着去显示，我放在/var/www/html/目录下。需要尝试用浏览器访问时候，需这样输入 xxx.xxx.cn/test.html<br>否则访问的是网站的首页<br>三，在服务器上下载apache服务，mysql数据库<br>我想的是用用LAMP环境的wordpress论坛。LAMP套装是Linux + apache + mysql + php。Linux作为操作系统，apache作为服务器，mysql是数据库，php作为服务器和数据库之间的接口(以及cgi)。</p>
+]]></content>
+      <categories>
+        <category>web</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>建立一个web（4）</title>
+    <url>/2020/03/25/%E5%BB%BA%E7%AB%8B%E4%B8%80%E4%B8%AAweb%EF%BC%884%EF%BC%89/</url>
+    <content><![CDATA[<p>在centos中安装mysql数据库<br>一，安装YUM Repo<br>1.由于CentOS 的yum源中没有mysql，需要到mysql的官网下载yum repo配置文件。<br>命令<br>wget <a href="https://dev.mysql.com/get/mysql57-community-release-el7-9.noarch.rpm" target="_blank" rel="noopener">https://dev.mysql.com/get/mysql57-community-release-el7-9.noarch.rpm</a><br>2.然后进行repo的安装<br>rpm -ivh mysql57-community-release-el7-9.noarch.rpm<br>执行完成后会在/etc/yum.repos.d/目录下生成两个repo文件mysql-community.repo mysql-community-source.repo</p>
+<p>二，使用yum命令即可完成安装<br>进入/etc/yum.repos.d/目录下输入命令<br>1.安装命令<br>yum install mysql-server<br>2.启动mysql<br>systemctl start mysqld<br>3.查看MySQL运行状态<br>systemctl status mysqld.service<br>看到active(running)时，mysql已经正常运行<br>4.获取安装时候的初始密码<br>grep “password” /var/log/mysqld.log</p>
+<p>三，登录<br>mysql -u root -p</p>
+<p>然后输入密码（刚刚获取的临时密码），输入密码时候，密码是不显示的，建议一个一个认真对着输入</p>
+<p>四，登录成功后修改密码<br>注意：这里会进行密码强度校验（密码设置时必须包含大小写字母、特殊符号、数字，并且长度大于8位）如不满足以上条件则会报错<br>命令<br>ALTER USER ‘root’@’localhost’ IDENTIFIED BY ‘new password’;</p>
+<p>在new password那位置写新密码</p>
+<p>mysql有关的命令<br>连接服务器: mysql -u root -p<br>看当前所有数据库：show databases;<br>进入mysql数据库：use mysql;<br>查看mysql数据库中所有的表：show tables;<br>查看user表中的数据：select Host, User,Password from user;<br>修改user表中的Host:   update user set Host=’%’ where User=’root’;<br>（说明： % 代表任意的客户端,可替换成具体IP地址。）<br>最后刷新一下：flush privileges;<br>注意：一定要记得在写sql的时候要在语句完成后加上” ; “</p>
+]]></content>
+      <categories>
+        <category>web</category>
+      </categories>
+  </entry>
+  <entry>
     <title>第一个博客</title>
     <url>/2019/12/06/%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2/</url>
     <content><![CDATA[<p>这是我第一个博客，于2019年12月6日写的第一篇，虽然现在博客功能不完善，界面不美观，但会尽力想方设法地去完善。<br>感觉目前也没有人会访问这个博客</p>
