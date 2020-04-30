@@ -1,6 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>虚拟机服务器搭建网页</title>
+    <url>/2020/04/30/%E8%99%9A%E6%8B%9F%E6%9C%BA%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA%E7%BD%91%E9%A1%B5/</url>
+    <content><![CDATA[<p>我用于学习与测试的虚拟机服务器是window server2003，可以搭建一些比较低版本的网页（用于做渗透测试与渗透学习）。</p>
+<p>搭建一个网站，首先要了解该网站是什么框架用的是什么语言、什么数据库，不然后面会出现一堆错误</p>
+<p>如果是asp服务的，可以下一个phpstudy，然后直接放到IIS服务器上运行就可以了，而且一个IIS服务器可以开放多个端口，可以让一个服务器在不同端口进行访问不同的网站。<br><img width=400 src="https://hexo-1300845384.cos.ap-guangzhou.myqcloud.com/fuwuqi1.jpg"><br>如果是php编写的网站，则需要在server03上安装php的环境，<br>(1)安装php最好用php安装包，比较省事（直接默认的安装就可以了）。<br>(2)安装FastCGI，同样也是安装包（按照默认的安装）<br>两个都安装好后，需要进行FastCGI配置</p>
+<p>打开文件C:\WINDOWS\system32\inetsrv\fcgiext.ini</p>
+<p>在最后的[Types]后添加上</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line">[PHP]</span><br><span class="line">ExePath=C:\Program Files\PHP\php-cgi.exe</span><br><span class="line">InstanceMaxRequests=<span class="number">10000</span></span><br><span class="line">ActivityTimeout=<span class="number">300</span></span><br><span class="line">RequestTimeout=<span class="number">600</span></span><br><span class="line">EnvironmentVars=PHP_FCGI_MAX_REQUESTS:<span class="number">10000</span>,PHPRC:C:\Program Files\PHP\</span><br></pre></td></tr></table></figure>
+
+<p>其中C:\Program Files\PHP改为自己的php安装路径</p>
+<p>第二步：在IIS上–网站–属性–主目录–配置–映射–添加名称.php–文件是C:\WINDOWS\system32\inetsrv\fcgiext.dll<br>这步骤很重要</p>
+<p>(3)配置php</p>
+<p> 第一步把 C:/PHP下面的 php.ini-dist 改名成php.ini 根据不同情况你可以自行修改某些参数 首先 我们需要告知PHP在何处可以找到其扩展功能模块文件 下面修改 C:/windows/php.ini 文件 需要注意的如下<br>查找 extension_dir 字串 修改为你 PHP 目录里 extensions 的路径:<br>extension_dir= “D:\Server_Core\PHP\ext”</p>
+<p>找到：<br>disable_functions=<br>改为：<br>disable_functions=passthru,exec,system,chroot,scandir,chgrp,chown,shell_exec,proc_open,proc_get_status,ini_alter,ini_alter,ini_restore,dl,pfsockopen,openlog,syslog,readlink,symlink,popepassthru,stream_socket_server</p>
+<p>保存php.ini文件，并复制到 C:/windows/system32目录下</p>
+<p>第二步<br>控制面版——》管理工具——》Internet服务管理器——》点选“Web 服务扩展”——》在右边窗口点击“添加一个新的 Web 服务扩展”——》扩展名为 “PHP”——》再点击“添加”——》在出现的窗口里填上“D:/PHP/sapi/php4isapi.dll” 并确定 然后再点选 Web 服务扩展 PHP 并选择允许 </p>
+<p>配置完后重启IIS服务，检查PHP环境是否搭建起来了，可以在IIS服务器上–网站–属性–ISAPI筛选器上看有无PHP绿色指向<br><img width=400 src="https://hexo-1300845384.cos.ap-guangzhou.myqcloud.com/fuwuqi2.jpg"></p>
+<p>最后可以检测php环境是否搭建成功：<br>在站点新建一个phpinfo.php文件，内容为：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">phpinfo();</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+<p>页面显示则是成功的<br><img width=400 src="https://hexo-1300845384.cos.ap-guangzhou.myqcloud.com/fuwuqi3.jpg"></p>
+<p>接着就可以部署网站源码了，注意整个电脑的phpstudy都必须是开启的，而且每次对IIS服务器上的修改，最好都重启IIS服务器。</p>
+<p>参考文章</p>
+<p><a href="https://blog.csdn.net/loveyexian/article/details/52764013" target="_blank" rel="noopener">https://blog.csdn.net/loveyexian/article/details/52764013</a><br><a href="https://blog.csdn.net/xuxiaoping_cumt/article/details/556089" target="_blank" rel="noopener">https://blog.csdn.net/xuxiaoping_cumt/article/details/556089</a></p>
+]]></content>
+  </entry>
+  <entry>
     <title>建立一个web（4）</title>
     <url>/2020/04/05/%E5%BB%BA%E7%AB%8B%E4%B8%80%E4%B8%AAweb(4)/</url>
     <content><![CDATA[<p>建立论坛的一些具体操作<br>##安装环境<br>先是下载好lampp（xampp的Linux版本）。官网的下载很慢，在电脑上下载好后，用winscp上传到服务器上，可以选择在/opt上新建一个文件夹命名lampp </p>
