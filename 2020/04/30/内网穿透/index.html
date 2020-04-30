@@ -45,17 +45,20 @@
   };
 </script>
 
-  <meta name="description" content="记录生活和学习，做自己喜欢的事">
-<meta property="og:type" content="website">
-<meta property="og:title" content="categories">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;categories&#x2F;index.html">
+  <meta name="description" content="虚拟机服务器搭建好后，只能在局域网内的电脑访问，不能给外网来进行访问，而内网穿透就可以实现这个功能：让外网可以访问到局域网(内网)的服务。 这次用的是花生壳内网穿透，因为这个是操作比较方便的，而且不用繁杂的注册实名，TCP内网穿透是免费的，而web服务内网穿透是6块一年(贼便宜)。 前提是虚拟机服务器能访问外网，可以ping一下外网ip看是否能连接，如果不能访问外网，则看以下步骤，若能访问外网则忽">
+<meta name="keywords" content="内网穿透">
+<meta property="og:type" content="article">
+<meta property="og:title" content="内网穿透">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;04&#x2F;30&#x2F;%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F&#x2F;index.html">
 <meta property="og:site_name" content="叶智龙">
-<meta property="og:description" content="记录生活和学习，做自己喜欢的事">
+<meta property="og:description" content="虚拟机服务器搭建好后，只能在局域网内的电脑访问，不能给外网来进行访问，而内网穿透就可以实现这个功能：让外网可以访问到局域网(内网)的服务。 这次用的是花生壳内网穿透，因为这个是操作比较方便的，而且不用繁杂的注册实名，TCP内网穿透是免费的，而web服务内网穿透是6块一年(贼便宜)。 前提是虚拟机服务器能访问外网，可以ping一下外网ip看是否能连接，如果不能访问外网，则看以下步骤，若能访问外网则忽">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-03-01T06:29:02.000Z">
+<meta property="og:image" content="http:&#x2F;&#x2F;serviceimg.oray.com&#x2F;1509&#x2F;20150930135209286.jpg">
+<meta property="og:updated_time" content="2020-04-30T14:57:00.000Z">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;serviceimg.oray.com&#x2F;1509&#x2F;20150930135209286.jpg">
 
-<link rel="canonical" href="http://yoursite.com/categories/">
+<link rel="canonical" href="http://yoursite.com/2020/04/30/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/">
 
 
 <script id="page-configurations">
@@ -63,14 +66,13 @@
   CONFIG.page = {
     sidebar: "",
     isHome: false,
-    isPost: false,
-    isPage: true,
+    isPost: true,
+    isPage: false,
     isArchive: false
   };
 </script>
 
-  <title>categories | 叶智龙
-  </title>
+  <title>内网穿透 | 叶智龙</title>
   
 
 
@@ -201,52 +203,124 @@
       <div class="main-inner">
         <div class="content-wrap">
           
-  
-  
 
           <div class="content">
             
 
   <div class="posts-expand">
-    
-    
-    
-    <div class="post-block" lang="zh-CN">
-      <header class="post-header">
-
-<h1 class="post-title" itemprop="name headline">categories
-</h1>
-
-<div class="post-meta">
+      
   
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/30/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/">
 
-</div>
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/head.png">
+      <meta itemprop="name" content="Yezhilong">
+      <meta itemprop="description" content="记录生活和学习，做自己喜欢的事">
+    </span>
 
-</header>
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="叶智龙">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          内网穿透
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-04-30 22:57:00" itemprop="dateCreated datePublished" datetime="2020-04-30T22:57:00+08:00">2020-04-30</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/" itemprop="url" rel="index">
+                    <span itemprop="name">内网穿透</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
+        <p>虚拟机服务器搭建好后，只能在局域网内的电脑访问，不能给外网来进行访问，而内网穿透就可以实现这个功能：让外网可以访问到局域网(内网)的服务。</p>
+<p>这次用的是花生壳内网穿透，因为这个是操作比较方便的，而且不用繁杂的注册实名，TCP内网穿透是免费的，而web服务内网穿透是6块一年(贼便宜)。</p>
+<p>前提是虚拟机服务器能访问外网，可以ping一下外网ip看是否能连接，如果不能访问外网，则看以下步骤，若能访问外网则忽略。<br>一、本地电脑上–网络适配器—WLAN（我是用wifi的）–属性–共享–把两个都勾选上</p>
+<p>二、虚拟机网络适配器上选择桥接模式–把复制物理网络连接状态勾选上。</p>
+<p>三、虚拟机–编辑–虚拟网络编辑器–点击还原默认设置</p>
+<p>四、重新进入server03服务器–简单点操作的话就把网络连接–属性–常规里面TCP/IP–属性–自动获取IP，这样就不会分不清了。然后在cmd里面ipconfig查看自己的ip地址</p>
+<p>这样一来就可以访问外网了。</p>
+<p>说回内网穿透<br>注册好账号后，下载window的客户端安装包，拖进window server03 服务器里面进行安装，然后登录</p>
+<p>点击右下角的加号–添加内网穿透<br><img src="http://serviceimg.oray.com/1509/20150930135209286.jpg"></p>
+<p>最后点击诊断，看是否映射正常，诊断正常后会给出映射的详细IP信息和访问地址。</p>
+<p>这样一来，外网就可以成功访问到局域网里面的服务器web服务了</p>
+
+    </div>
+
+    
+    
+    
+        <div class="reward-container">
+  <div></div>
+  <button disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
       
-      
-      <div class="post-body">
-          <div class="category-all-page">
-            <div class="category-all-title">
-              目前共计 4 个分类
-            </div>
-            <div class="category-all">
-              <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/life/">life</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/web/">web</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/">内网穿透</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%99%9A%E6%8B%9F%E6%9C%BA%E6%9C%8D%E5%8A%A1%E5%99%A8/">虚拟机服务器</a><span class="category-list-count">1</span></li></ul>
-            </div>
-          </div>
-        
+      <div style="display: inline-block;">
+        <img src="/images/wechat.jpg" alt="Yezhilong 微信支付">
+        <p>微信支付</p>
       </div>
       
-      
-      
-    </div>
-    
+      <div style="display: inline-block;">
+        <img src="/images/alipay.jpg" alt="Yezhilong 支付宝">
+        <p>支付宝</p>
+      </div>
 
+  </div>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/" rel="tag"># 内网穿透</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/04/30/%E8%99%9A%E6%8B%9F%E6%9C%BA%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA%E7%BD%91%E9%A1%B5/" rel="prev" title="虚拟机服务器搭建网页">
+      <i class="fa fa-chevron-left"></i> 虚拟机服务器搭建网页
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
     
-    
-    
+  </article>
+  
+  
+  
+
   </div>
 
 
