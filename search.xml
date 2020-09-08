@@ -1,25 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>内网穿透</title>
-    <url>/2020/04/30/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/</url>
-    <content><![CDATA[<p>虚拟机服务器搭建好后，只能在局域网内的电脑访问，不能给外网来进行访问，而内网穿透就可以实现这个功能：让外网可以访问到局域网(内网)的服务。</p>
-<p>这次用的是花生壳内网穿透，因为这个是操作比较方便的，而且不用繁杂的注册实名，TCP内网穿透是免费的，而web服务内网穿透是6块一年(贼便宜)。</p>
-<p>前提是虚拟机服务器能访问外网，可以ping一下外网ip看是否能连接，如果不能访问外网，则看以下步骤，若能访问外网则忽略。<br>一、本地电脑上–网络适配器—WLAN（我是用wifi的）–属性–共享–把两个都勾选上</p>
-<p>二、虚拟机网络适配器上选择桥接模式–把复制物理网络连接状态勾选上。</p>
-<p>三、虚拟机–编辑–虚拟网络编辑器–点击还原默认设置</p>
-<p>四、重新进入server03服务器–简单点操作的话就把网络连接–属性–常规里面TCP/IP–属性–自动获取IP，这样就不会分不清了。然后在cmd里面ipconfig查看自己的ip地址</p>
-<p>这样一来就可以访问外网了。</p>
-<p>说回内网穿透<br>注册好账号后，下载window的客户端安装包，拖进window server03 服务器里面进行安装，然后登录</p>
-<p>点击右下角的加号–添加内网穿透<br><img src="http://serviceimg.oray.com/1509/20150930135209286.jpg"></p>
-<p>最后点击诊断，看是否映射正常，诊断正常后会给出映射的详细IP信息和访问地址。</p>
-<p>这样一来，外网就可以成功访问到局域网里面的服务器web服务了</p>
+    <title>网易云UnblockNeteaseMusic</title>
+    <url>/2020/09/08/UnblockNeteaseMusic/</url>
+    <content><![CDATA[<h1 id="网易云UnblockNeteaseMusic"><a href="#网易云UnblockNeteaseMusic" class="headerlink" title="网易云UnblockNeteaseMusic"></a><strong>网易云UnblockNeteaseMusic</strong></h1><p>搭建前准备：<br>一个centos虚拟机或有个服务器最好</p>
+<p>GitHub项目地址：<br><a href="https://github.com/nondanee/UnblockNeteaseMusic" target="_blank" rel="noopener">https://github.com/nondanee/UnblockNeteaseMusic</a></p>
+<hr>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><h3 id="1、安装Nodejs"><a href="#1、安装Nodejs" class="headerlink" title="1、安装Nodejs"></a>1、安装Nodejs</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#Debian/Ubuntu系统</span><br><span class="line">curl -sL https://deb.nodesource.com/setup_10.x | bash -</span><br><span class="line">apt install -y nodejs git </span><br><span class="line"></span><br><span class="line">#CentOS系统</span><br><span class="line">curl -sL https://rpm.nodesource.com/setup_10.x | bash -</span><br><span class="line">yum install nodejs git -y</span><br></pre></td></tr></table></figure>
+<h3 id="2、安装UnblockNeteaseMusic"><a href="#2、安装UnblockNeteaseMusic" class="headerlink" title="2、安装UnblockNeteaseMusic"></a>2、安装UnblockNeteaseMusic</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git clone https://github.com/nondanee/UnblockNeteaseMusic.git </span><br><span class="line"></span><br><span class="line">cd UnblockNeteaseMusic</span><br><span class="line"></span><br><span class="line">node app.js</span><br></pre></td></tr></table></figure>
+<p>行端口默认为8080，需要想修改可以编辑app.js文件的config.port对应的数值，或者使用命令：</p>
+<p><code>node app.js -p 4567</code></p>
+<p>#这里默认修改4567，自行调整</p>
+<h3 id="3、开机自启"><a href="#3、开机自启" class="headerlink" title="3、开机自启"></a>3、开机自启</h3><p>这里使用Systemd进程守护，只适用于CentOS 7、Debian 8+、Ubuntu 16+等。</p>
+<p>#修改下ExecStartPre源码路径即可，然后一起复制到SSH运行 </p>
+<p><code>cat &gt; /etc/systemd/system/UnblockNeteaseMusic.service &lt;&lt;EOF</code></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[Unit] Description=UnblockNeteaseMusic </span><br><span class="line">After=network.target </span><br><span class="line">Wants=network.target </span><br><span class="line"></span><br><span class="line">[Service] Type=simple PIDFile=/var/run/UnblockNeteaseMusic.pid WorkingDirectory=/root/UnblockNeteaseMusic </span><br><span class="line">ExecStart=$(command -v node) app.js -p 4567 RestartPreventExitStatus=23 </span><br><span class="line">Restart=always </span><br><span class="line"></span><br><span class="line">[Install] WantedBy=multi-user.target </span><br><span class="line">EOF</span><br></pre></td></tr></table></figure>
+
+<p>启动并开机自启：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">systemctl start UnblockNeteaseMusic</span><br><span class="line">systemctl enable UnblockNeteaseMusic</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h2><p>在window端网易云客户端设置 &gt; 工具 &gt; 自定义代理 &gt; HTTP代理，填上ip地址端口号，重启网易云即可。</p>
 ]]></content>
       <categories>
-        <category>内网穿透</category>
+        <category>web</category>
       </categories>
       <tags>
-        <tag>内网穿透</tag>
+        <tag>UnblockNeteaseMusic</tag>
       </tags>
   </entry>
   <entry>
