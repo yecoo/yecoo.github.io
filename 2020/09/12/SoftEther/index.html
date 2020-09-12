@@ -45,17 +45,18 @@
   };
 </script>
 
-  <meta name="description" content="这是我第一个博客，于2019年12月6日写的第一篇，虽然现在博客功能不完善，界面不美观，但会尽力想方设法地去完善。感觉目前也没有人会访问这个博客 这个博客从建立hexo框架，nodejs语言环境，再用GitHub的库，实现了开创我的第一个网页，而且还是免费的。图片用了阿里云来储存（1块钱6个月），域名好贵，不打算再去租一个域名了。再后来用了HexoEditor这个编辑器来编写内容，但是效果没有和介">
+  <meta name="description" content="开始前必须准备资源工具：校园网内任意一台电脑、服务器或者独立的外部服务器（可以是家里的电脑或服务器）前提是能上网的电脑。我的操作是在centos云服务器。 在服务器端上的操作1、因为要在线编译，所以要安装gcc及其它组件 yum -y install gcc zlib-devel openssl-devel readline-devel ncurses-devel 2、下载安装SoftEther">
+<meta name="keywords" content="OpenVPN">
 <meta property="og:type" content="article">
-<meta property="og:title" content="第一个博客">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;06&#x2F;%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2&#x2F;index.html">
+<meta property="og:title" content="OpenVPN">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;09&#x2F;12&#x2F;SoftEther&#x2F;index.html">
 <meta property="og:site_name" content="叶智龙">
-<meta property="og:description" content="这是我第一个博客，于2019年12月6日写的第一篇，虽然现在博客功能不完善，界面不美观，但会尽力想方设法地去完善。感觉目前也没有人会访问这个博客 这个博客从建立hexo框架，nodejs语言环境，再用GitHub的库，实现了开创我的第一个网页，而且还是免费的。图片用了阿里云来储存（1块钱6个月），域名好贵，不打算再去租一个域名了。再后来用了HexoEditor这个编辑器来编写内容，但是效果没有和介">
+<meta property="og:description" content="开始前必须准备资源工具：校园网内任意一台电脑、服务器或者独立的外部服务器（可以是家里的电脑或服务器）前提是能上网的电脑。我的操作是在centos云服务器。 在服务器端上的操作1、因为要在线编译，所以要安装gcc及其它组件 yum -y install gcc zlib-devel openssl-devel readline-devel ncurses-devel 2、下载安装SoftEther">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-12-06T08:52:37.215Z">
+<meta property="og:updated_time" content="2020-09-12T06:33:21.165Z">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://yoursite.com/2019/12/06/%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2/">
+<link rel="canonical" href="http://yoursite.com/2020/09/12/SoftEther/">
 
 
 <script id="page-configurations">
@@ -69,7 +70,7 @@
   };
 </script>
 
-  <title>第一个博客 | 叶智龙</title>
+  <title>OpenVPN | 叶智龙</title>
   
 
 
@@ -209,7 +210,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/06/%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/09/12/SoftEther/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/head.png">
@@ -222,7 +223,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          第一个博客
+          OpenVPN
         </h1>
 
         <div class="post-meta">
@@ -232,7 +233,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2019-12-06 16:52:37" itemprop="dateCreated datePublished" datetime="2019-12-06T16:52:37+08:00">2019-12-06</time>
+              <time title="创建时间：2020-09-12 14:33:21" itemprop="dateCreated datePublished" datetime="2020-09-12T14:33:21+08:00">2020-09-12</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -240,8 +241,8 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/life/" itemprop="url" rel="index">
-                    <span itemprop="name">life</span>
+                  <a href="/categories/web/" itemprop="url" rel="index">
+                    <span itemprop="name">web</span>
                   </a>
                 </span>
             </span>
@@ -264,9 +265,70 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>这是我第一个博客，于2019年12月6日写的第一篇，虽然现在博客功能不完善，界面不美观，但会尽力想方设法地去完善。<br>感觉目前也没有人会访问这个博客</p>
-<p>这个博客从建立hexo框架，nodejs语言环境，再用GitHub的库，实现了开创我的第一个网页，而且还是免费的。图片用了阿里云来储存（1块钱6个月），域名好贵，不打算再去租一个域名了。再后来用了HexoEditor这个编辑器来编写内容，但是效果没有和介绍的哪样（可能是我设置没有弄好的原因，又或者是这款编辑器适合于next主题）。这所有过程疯狂的出现各种错误，无数次的百度，看别人的解决方法，无数次翻他们的博客。那个HexoEditor中途有点想放弃的感觉，但不想白费自己前面的所画的时间。两次成功的时候都内心无比的快乐：一次是打开了网页看到hello world，一次是打开了HexoEditor编辑器。</p>
-<p>##这个博客下个优化计划<br>菜单分类，图片布局，字体设置。<br>打赏功能<br>###博客的久远优化计划<br>1.界面美化，有个博客贼有创意：一个超可爱的二次元动漫动态图片在左下角，她会看着你的光标，光标移到哪里她就看哪里，当你的光标移到她那转来转去，她会很害羞地看着你。<br>2.设置访客数量与评论界面<br>3.设置到百度等搜索引擎上可以搜索得到与我博客相关内容</p>
+        <p>开始前必须准备资源工具：校园网内任意一台电脑、服务器或者独立的外部服务器（可以是家里的电脑或服务器）前提是能上网的电脑。我的操作是在centos云服务器。</p>
+<h1 id="在服务器端上的操作"><a href="#在服务器端上的操作" class="headerlink" title="在服务器端上的操作"></a>在服务器端上的操作</h1><p>1、因为要在线编译，所以要安装gcc及其它组件</p>
+<p><code>yum -y install gcc zlib-devel openssl-devel readline-devel ncurses-devel</code></p>
+<p>2、下载安装SoftEther</p>
+<p><code>wget https://github.com/SoftEtherVPN/SoftEtherVPN_Stable/releases/download/v4.29-9680-rtm/softether-vpnserver-v4.29-9680-rtm-2019.02.28-linux-x64-64bit.tar.gz</code></p>
+<p>解压</p>
+<p><code>tar -zxvf softether-vpnserver-v4.29-9680-rtm-2019.02.28-linux-x64-64bit.tar.gz</code></p>
+<p><code>cd vpnserver/</code></p>
+<p>3、编译<br>make<br>三次选择1.yes即可（输入1后回车）</p>
+<p>4、接下来我们将SoftEther设置为服务项。</p>
+<p><code>vi /etc/systemd/system/vpnserver.service</code></p>
+<p>输入以下内容</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">[Unit] </span><br><span class="line">Description=SoftEther Server </span><br><span class="line">After=network.target </span><br><span class="line">[Service] </span><br><span class="line">Type=forking </span><br><span class="line">ExecStart=/root/vpnserver/vpnserver start </span><br><span class="line">ExecStop= /root/vpnserver/vpnserver stop</span><br><span class="line">[Install] </span><br><span class="line">WantedBy=multi-user.target</span><br></pre></td></tr></table></figure>
+
+<p>接着常规操作<br>启动服务<br><code>systemctl start vpnserver</code></p>
+<p>开机自启<br><code>systemctl enable vpnserver</code></p>
+<p>关闭防火墙<br><code>systemctl stop firewalld</code></p>
+<p>5、设置SoftEther</p>
+<p><code>./vpncmd</code></p>
+<p>1）此时需要你输入主机名称或IP地址，这里什么也不用输入，直接回车即可（输入可能会出问题）<br>2）不用输入，直接回车即可。<br>3）接下来设置管理员密码，输入“ServerPasswordSet”命令后，再重复输入两次密码即可。</p>
+<p>再输入“exit”即可退出配置，此时服务安装与基本配置完成。</p>
+<hr>
+<h1 id="在客户端上的操作"><a href="#在客户端上的操作" class="headerlink" title="在客户端上的操作"></a>在客户端上的操作</h1><p>下载window端的SoftEther，下载地址<br><a href="https://www.softether-download.com/cn.aspx?product=softether" target="_blank" rel="noopener">https://www.softether-download.com/cn.aspx?product=softether</a></p>
+<img src=https://hexo-1300845384.cos.ap-guangzhou.myqcloud.com/Openvpn/1.jpg>
+
+<p>下载完后安装</p>
+<img src=https://hexo-1300845384.cos.ap-guangzhou.myqcloud.com/Openvpn/2.jpg >
+
+<p>安装完后打开，进行配置</p>
+<img src=https://hexo-1300845384.cos.ap-guangzhou.myqcloud.com/Openvpn/3.jpg>
+
+<p>在1处填一个自定义名字，2处填主机ip地址，3处填自己设好的密码</p>
+<img src=https://hexo-1300845384.cos.ap-guangzhou.myqcloud.com/Openvpn/4.jpg>
+
+<p>设置完后连接</p>
+<img src=https://hexo-1300845384.cos.ap-guangzhou.myqcloud.com/Openvpn/5.jpg>
+
+<p>连接成功后，选择VPN的其他高级配置，然后点击关闭</p>
+<img src=https://hexo-1300845384.cos.ap-guangzhou.myqcloud.com/Openvpn/6.jpg>
+
+<p>选择“是”</p>
+<img src=https://hexo-1300845384.cos.ap-guangzhou.myqcloud.com/Openvpn/7.jpg>
+
+<p>进入界面后，点击IPsec/L2TP设置</p>
+<img src=https://hexo-1300845384.cos.ap-guangzhou.myqcloud.com/Openvpn/8.jpg>
+
+<p>接下来点击管理虚拟HUB–点击管理用户，建立一个用户，将来用来客户端连接<br>在1个选择“新建”来创建用户，在2处输入用户名，在3处选择“密码验证”，在4处输入用户登录密码，输入完成后，点击“确定”按钮确定完成。</p>
+<img src=https://hexo-1300845384.cos.ap-guangzhou.myqcloud.com/Openvpn/9.jpg>
+
+<p>接下来在虚拟HUB中，点击虚拟NAT和虚拟DHCP服务，<br>启用安全NAT，选择“启用SecureNAT”项后，在弹出的界面中选择“确定”</p>
+<img src=https://hexo-1300845384.cos.ap-guangzhou.myqcloud.com/Openvpn/10.jpg >
+
+<p>如果你只是通过VPN Server做代理上网，你可以直接打开SecureNAT即可完成配置；</p>
+<p>设置安全NAT（可有可无，只是决定你能不能作为梯子来翻墙），首先应该去服务器上查看DNS的地址<br>在服务器上<br>cat /etc/resolv.conf</p>
+<img src=https://hexo-1300845384.cos.ap-guangzhou.myqcloud.com/Openvpn/11.jpg >
+
+
+<img src=https://hexo-1300845384.cos.ap-guangzhou.myqcloud.com/Openvpn/12.jpg >
+
+<p>最后，点击OpenVPN/MS-SSTP设置，UDP端口设置为53，然后生成配置样本文件</p>
+<img src=https://hexo-1300845384.cos.ap-guangzhou.myqcloud.com/Openvpn/13.jpg >
+
+
+<p>下载一个OpenVPN，导入配置文件l3就可以连接上网了</p>
 
     </div>
 
@@ -295,6 +357,9 @@
 
 
       <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/OpenVPN/" rel="tag"># OpenVPN</a>
+          </div>
 
         
 
@@ -302,13 +367,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2019/12/06/%E8%A7%89%E5%BE%97OK%E5%8F%AF%E4%BB%A5%E8%AF%B7%E4%BD%9C%E8%80%85%E5%96%9D%E5%92%96%E5%95%A1/" rel="prev" title="如果觉得OK可以请作者喝咖啡">
-      <i class="fa fa-chevron-left"></i> 如果觉得OK可以请作者喝咖啡
+    <a href="/2020/09/08/UnblockNeteaseMusic/" rel="prev" title="网易云UnblockNeteaseMusic">
+      <i class="fa fa-chevron-left"></i> 网易云UnblockNeteaseMusic
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2020/03/25/%E5%BB%BA%E7%AB%8B%E4%B8%80%E4%B8%AAweb(2)/" rel="next" title="建立一个web（2）">
-      建立一个web（2） <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -346,6 +408,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#在服务器端上的操作"><span class="nav-number">1.</span> <span class="nav-text">在服务器端上的操作</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#在客户端上的操作"><span class="nav-number">2.</span> <span class="nav-text">在客户端上的操作</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
