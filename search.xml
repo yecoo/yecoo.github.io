@@ -1,9 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>MC_server</title>
+    <url>/2020/11/11/MC-server/</url>
+    <content><![CDATA[<img width=600 src="https://hexo-1300845384.cos.ap-guangzhou.myqcloud.com/tec/mc.PNG">
+
+
+
+<p>mc服务器用的环境是centos，配置mc服务器需要java环境、服务器jar包，同时需要服务器的版本和客户端的版本要一致，同时mod也要一致,mod文件放在./minecraft/mod文件夹下就可以。</p>
+<a id="more"></a>
+
+<h4 id="安装java环境"><a href="#安装java环境" class="headerlink" title="安装java环境"></a>安装java环境</h4><p>一种方法是yum安装</p>
+<p><code>yum -y list java*</code>  查看yum库有什么版本的java</p>
+<p><code>yum -y install java-1.8.0-openjdk*</code></p>
+<p>此时输入java -version就可以看到配置成功</p>
+<p>另一种方法</p>
+<p>创建java文件夹</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">mkdir /usr/java</span><br><span class="line"></span><br><span class="line">cd /usr/java</span><br></pre></td></tr></table></figure>
+
+<p>上传java压缩包，然后解压</p>
+<p><code>tar -zxvf jdk-8u171-linux-x64.tar.gz -C /usr/java</code></p>
+<p>配置环境变量</p>
+<p><code>vi /etc/profile</code></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">export JAVA_HOME=/usr/java/jdk1.8.0_171</span><br><span class="line">export CLASSPATH=$JAVA_HOME/lib/</span><br><span class="line">export PATH=$PATH:$JAVA_HOME/bin</span><br><span class="line">export PATH JAVA_HOME CLASSPATH</span><br></pre></td></tr></table></figure>
+
+<p><code>source /etc/profile</code></p>
+<p>此时可以输入java -version 看到java版本号就成功配置完java环境</p>
+<h4 id="安装配置mc-server包"><a href="#安装配置mc-server包" class="headerlink" title="安装配置mc.server包"></a>安装配置mc.server包</h4><p>找一个版本的服务器jar包，上传到服务器新建的mc文件夹</p>
+<p>新建文件eula.txt，并将“eula=true”写入eula.txt中： </p>
+<p><code>echo eula=true &gt; eula.txt</code> </p>
+<p>新建启动脚本start.sh，并将启动命令写入start.sh中，同时赋予此脚本执行权限：</p>
+<p><code>echo -e &#39;#!/bin/sh \njava -Xmx768M -Xms512M -jar ./minecraft_server.1.12.2.jar&#39; &gt; start.sh &amp;&amp; chmod 777 start.sh</code> </p>
+<p>这里要注意：由于我的服务器内存有点小，所以此处最小内存就设置了512MB，最大设置了768MB，这些参数大家可以根据自己的服务器配置酌情修改。 （其中“Xms512M”表示堆内存初始值为512MB，“Xmx768M”表示堆内存最大值为768MB）</p>
+<p> 启动成功最后一行就会出现“Done”、”help”等字样</p>
+<p>对server.properties配置</p>
+<p>设置</p>
+<p><code>online-mode=false</code>  #是否开启正版验证，需用我的世界官方启动器才能进入，填false才能进入游戏</p>
+<p>关闭防火墙</p>
+<p><code>systemctl stop firewallld</code></p>
+<p>设置云平台的防火墙规则</p>
+<p>把程序后台挂着的命令</p>
+<p><code>nohup ./start.sh &amp;</code></p>
+<p>对server.properties配置：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">allow-nether=true   #是否开启地狱</span><br><span class="line"></span><br><span class="line">level-name=world   #默认世界名称（最好不要改）</span><br><span class="line"></span><br><span class="line">enable-query=false  #没有什么大用处</span><br><span class="line"></span><br><span class="line">allow-flight=false    #没有什么大用处</span><br><span class="line"></span><br><span class="line">announce-player-achievements=true  #意义不明</span><br><span class="line"></span><br><span class="line">server-port=25566   #服务器端口（127.0.0.1:25565中的冒号后面是这个server-port的数值）</span><br><span class="line"></span><br><span class="line">enable-rcon=false  #是否开启rcon监听（没有什么用）</span><br><span class="line"></span><br><span class="line">force-gamemode=false  #force游戏模式</span><br><span class="line"></span><br><span class="line">level-seed=      #我的世界地图种子（没有特殊需要就不填）</span><br><span class="line"></span><br><span class="line">server-ip=       #服务器指向IP（默认不要改放空）</span><br><span class="line"></span><br><span class="line">max-build-height=256  #服务器最大建筑高度</span><br><span class="line"></span><br><span class="line">spawn-npcs=true      #是否有主城NPC</span><br><span class="line"></span><br><span class="line">white-list=false        #是否开启白名单（开启后在白名单内的玩家才能进入服务器，否则进入不了。不要随便开）</span><br><span class="line"></span><br><span class="line">spawn-animals=true  #主城是否有动物</span><br><span class="line"></span><br><span class="line">snooper-enabled=true  #意义不明</span><br><span class="line"></span><br><span class="line">hardcore=false     #我的世界极限模式是否开启（玩过的都知道）</span><br><span class="line"></span><br><span class="line">online-mode=false  #是否开启正版验证，需用我的世界官方启动器才能进入</span><br><span class="line"></span><br><span class="line">resource-pack=      #服务器资源包：填下载地址（不需要就不填）</span><br><span class="line"></span><br><span class="line">pvp=true         #是否开启服务器PVP</span><br><span class="line"></span><br><span class="line">difficulty=1   #服务器难度： 0和平 1简单 2中等 3困难</span><br><span class="line"></span><br><span class="line">enable-command-block=false  #是否开启命令方块</span><br><span class="line"></span><br><span class="line">player-idle-timeout=0  #意义不明</span><br><span class="line"></span><br><span class="line">gamemode=0 #玩家默认进入游戏的游戏模式 1创造 0生存 2冒险模式3旁观者</span><br><span class="line"></span><br><span class="line">max-players=20  #服务器最大玩家数（超过后玩家无法进入）</span><br><span class="line"></span><br><span class="line">spawn-monsters=true  #主城是否刷新怪物</span><br><span class="line"></span><br><span class="line">view-distance=10  #意义不明</span><br><span class="line"></span><br><span class="line">generate-structures=true  #意义不明</span><br><span class="line"></span><br><span class="line">spawn-protection=16 #服务器最大保护区（玩家破坏建筑不了）</span><br><span class="line"></span><br><span class="line">motd=A Minecraft Server  MOTD指的是在玩家添加服务器后下面会显示这里面的内容（不能为中文、特殊符号）</span><br></pre></td></tr></table></figure>
+
+
+
+]]></content>
+      <categories>
+        <category>tec</category>
+      </categories>
+      <tags>
+        <tag>MC</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>OpenVPN</title>
     <url>/2020/09/12/SoftEther/</url>
     <content><![CDATA[<p>开始前必须准备资源工具：校园网内任意一台电脑、服务器或者独立的外部服务器（可以是家里的电脑或服务器）前提是能上网的电脑。我的操作是在centos云服务器。</p>
+<a id="more"></a>
 <h1 id="在服务器端上的操作"><a href="#在服务器端上的操作" class="headerlink" title="在服务器端上的操作"></a>在服务器端上的操作</h1><p>1、因为要在线编译，所以要安装gcc及其它组件</p>
 <p><code>yum -y install gcc zlib-devel openssl-devel readline-devel ncurses-devel</code></p>
 <p>2、下载安装SoftEther</p>
@@ -80,6 +135,7 @@
     <url>/2020/09/08/UnblockNeteaseMusic/</url>
     <content><![CDATA[<h1 id="网易云UnblockNeteaseMusic"><a href="#网易云UnblockNeteaseMusic" class="headerlink" title="网易云UnblockNeteaseMusic"></a><strong>网易云UnblockNeteaseMusic</strong></h1><p>搭建前准备：<br>一个centos虚拟机或有个服务器最好</p>
 <p>GitHub项目地址：<br><a href="https://github.com/nondanee/UnblockNeteaseMusic" target="_blank" rel="noopener">https://github.com/nondanee/UnblockNeteaseMusic</a></p>
+<a id="more"></a>
 <hr>
 <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><h3 id="1、安装Nodejs"><a href="#1、安装Nodejs" class="headerlink" title="1、安装Nodejs"></a>1、安装Nodejs</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#Debian/Ubuntu系统</span><br><span class="line">curl -sL https://deb.nodesource.com/setup_10.x | bash -</span><br><span class="line">apt install -y nodejs git </span><br><span class="line"></span><br><span class="line">#CentOS系统</span><br><span class="line">curl -sL https://rpm.nodesource.com/setup_10.x | bash -</span><br><span class="line">yum install nodejs git -y</span><br></pre></td></tr></table></figure>
 <h3 id="2、安装UnblockNeteaseMusic"><a href="#2、安装UnblockNeteaseMusic" class="headerlink" title="2、安装UnblockNeteaseMusic"></a>2、安装UnblockNeteaseMusic</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git clone https://github.com/nondanee/UnblockNeteaseMusic.git </span><br><span class="line"></span><br><span class="line">cd UnblockNeteaseMusic</span><br><span class="line"></span><br><span class="line">node app.js</span><br></pre></td></tr></table></figure>
@@ -89,7 +145,7 @@
 <h3 id="3、开机自启"><a href="#3、开机自启" class="headerlink" title="3、开机自启"></a>3、开机自启</h3><p>这里使用Systemd进程守护，只适用于CentOS 7、Debian 8+、Ubuntu 16+等。</p>
 <p>#修改下ExecStartPre源码路径即可，然后一起复制到SSH运行 </p>
 <p><code>cat &gt; /etc/systemd/system/UnblockNeteaseMusic.service &lt;&lt;EOF</code></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[Unit] Description=UnblockNeteaseMusic </span><br><span class="line">After=network.target </span><br><span class="line">Wants=network.target </span><br><span class="line"></span><br><span class="line">[Service] Type=simple PIDFile=/var/run/UnblockNeteaseMusic.pid WorkingDirectory=/root/UnblockNeteaseMusic </span><br><span class="line">ExecStart=$(command -v node) app.js -p 4567 RestartPreventExitStatus=23 </span><br><span class="line">Restart=always </span><br><span class="line"></span><br><span class="line">[Install] WantedBy=multi-user.target </span><br><span class="line">EOF</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[Unit]</span><br><span class="line">Description=UnblockNeteaseMusic</span><br><span class="line">After=network.target</span><br><span class="line">Wants=network.target</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line">Type=simple</span><br><span class="line">PIDFile=/var/run/UnblockNeteaseMusic.pid</span><br><span class="line">WorkingDirectory=/root/UnblockNeteaseMusic</span><br><span class="line">ExecStart=$(command -v node) app.js -p 4567</span><br><span class="line">RestartPreventExitStatus=23</span><br><span class="line">Restart=always</span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure>
 
 <p>启动并开机自启：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">systemctl start UnblockNeteaseMusic</span><br><span class="line">systemctl enable UnblockNeteaseMusic</span><br></pre></td></tr></table></figure>

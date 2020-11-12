@@ -208,6 +208,86 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/11/11/MC-server/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/head.png">
+      <meta itemprop="name" content="Yezhilong">
+      <meta itemprop="description" content="记录生活和学习，做自己喜欢的事">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="叶智龙">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/11/11/MC-server/" class="post-title-link" itemprop="url">MC_server</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-11-11 16:17:10" itemprop="dateCreated datePublished" datetime="2020-11-11T16:17:10+08:00">2020-11-11</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/tec/" itemprop="url" rel="index">
+                    <span itemprop="name">tec</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <img width=600 src="https://hexo-1300845384.cos.ap-guangzhou.myqcloud.com/tec/mc.PNG">
+
+
+
+<p>mc服务器用的环境是centos，配置mc服务器需要java环境、服务器jar包，同时需要服务器的版本和客户端的版本要一致，同时mod也要一致,mod文件放在./minecraft/mod文件夹下就可以。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/11/11/MC-server/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/09/12/SoftEther/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -258,70 +338,14 @@
 
       
           <p>开始前必须准备资源工具：校园网内任意一台电脑、服务器或者独立的外部服务器（可以是家里的电脑或服务器）前提是能上网的电脑。我的操作是在centos云服务器。</p>
-<h1 id="在服务器端上的操作"><a href="#在服务器端上的操作" class="headerlink" title="在服务器端上的操作"></a>在服务器端上的操作</h1><p>1、因为要在线编译，所以要安装gcc及其它组件</p>
-<p><code>yum -y install gcc zlib-devel openssl-devel readline-devel ncurses-devel</code></p>
-<p>2、下载安装SoftEther</p>
-<p><code>wget https://github.com/SoftEtherVPN/SoftEtherVPN_Stable/releases/download/v4.29-9680-rtm/softether-vpnserver-v4.29-9680-rtm-2019.02.28-linux-x64-64bit.tar.gz</code></p>
-<p>解压</p>
-<p><code>tar -zxvf softether-vpnserver-v4.29-9680-rtm-2019.02.28-linux-x64-64bit.tar.gz</code></p>
-<p><code>cd vpnserver/</code></p>
-<p>3、编译<br>make<br>三次选择1.yes即可（输入1后回车）</p>
-<p>4、接下来我们将SoftEther设置为服务项。</p>
-<p><code>vi /etc/systemd/system/vpnserver.service</code></p>
-<p>输入以下内容</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">[Unit] </span><br><span class="line">Description=SoftEther Server </span><br><span class="line">After=network.target </span><br><span class="line">[Service] </span><br><span class="line">Type=forking </span><br><span class="line">ExecStart=/root/vpnserver/vpnserver start </span><br><span class="line">ExecStop= /root/vpnserver/vpnserver stop</span><br><span class="line">[Install] </span><br><span class="line">WantedBy=multi-user.target</span><br></pre></td></tr></table></figure>
-
-<p>接着常规操作<br>启动服务<br><code>systemctl start vpnserver</code></p>
-<p>开机自启<br><code>systemctl enable vpnserver</code></p>
-<p>关闭防火墙<br><code>systemctl stop firewalld</code></p>
-<p>5、设置SoftEther</p>
-<p><code>./vpncmd</code></p>
-<p>1）此时需要你输入主机名称或IP地址，这里什么也不用输入，直接回车即可（输入可能会出问题）<br>2）不用输入，直接回车即可。<br>3）接下来设置管理员密码，输入“ServerPasswordSet”命令后，再重复输入两次密码即可。</p>
-<p>再输入“exit”即可退出配置，此时服务安装与基本配置完成。</p>
-<hr>
-<h1 id="在客户端上的操作"><a href="#在客户端上的操作" class="headerlink" title="在客户端上的操作"></a>在客户端上的操作</h1><p>下载window端的SoftEther，下载地址<br><a href="https://www.softether-download.com/cn.aspx?product=softether" target="_blank" rel="noopener">https://www.softether-download.com/cn.aspx?product=softether</a></p>
-<img src=https://hexo-1300845384.cos.ap-guangzhou.myqcloud.com/Openvpn/1.jpg>
-
-<p>下载完后安装</p>
-<img src=https://hexo-1300845384.cos.ap-guangzhou.myqcloud.com/Openvpn/2.jpg >
-
-<p>安装完后打开，进行配置</p>
-<img src=https://hexo-1300845384.cos.ap-guangzhou.myqcloud.com/Openvpn/3.jpg>
-
-<p>在1处填一个自定义名字，2处填主机ip地址，3处填自己设好的密码</p>
-<img src=https://hexo-1300845384.cos.ap-guangzhou.myqcloud.com/Openvpn/4.jpg>
-
-<p>设置完后连接</p>
-<img src=https://hexo-1300845384.cos.ap-guangzhou.myqcloud.com/Openvpn/5.jpg>
-
-<p>连接成功后，选择VPN的其他高级配置，然后点击关闭</p>
-<img src=https://hexo-1300845384.cos.ap-guangzhou.myqcloud.com/Openvpn/6.jpg>
-
-<p>选择“是”</p>
-<img src=https://hexo-1300845384.cos.ap-guangzhou.myqcloud.com/Openvpn/7.jpg>
-
-<p>进入界面后，点击IPsec/L2TP设置</p>
-<img src=https://hexo-1300845384.cos.ap-guangzhou.myqcloud.com/Openvpn/8.jpg>
-
-<p>接下来点击管理虚拟HUB–点击管理用户，建立一个用户，将来用来客户端连接<br>在1个选择“新建”来创建用户，在2处输入用户名，在3处选择“密码验证”，在4处输入用户登录密码，输入完成后，点击“确定”按钮确定完成。</p>
-<img src=https://hexo-1300845384.cos.ap-guangzhou.myqcloud.com/Openvpn/9.jpg>
-
-<p>接下来在虚拟HUB中，点击虚拟NAT和虚拟DHCP服务，<br>启用安全NAT，选择“启用SecureNAT”项后，在弹出的界面中选择“确定”</p>
-<img src=https://hexo-1300845384.cos.ap-guangzhou.myqcloud.com/Openvpn/10.jpg >
-
-<p>如果你只是通过VPN Server做代理上网，你可以直接打开SecureNAT即可完成配置；</p>
-<p>设置安全NAT（可有可无，只是决定你能不能作为梯子来翻墙），首先应该去服务器上查看DNS的地址<br>在服务器上<br>cat /etc/resolv.conf</p>
-<img src=https://hexo-1300845384.cos.ap-guangzhou.myqcloud.com/Openvpn/11.jpg >
-
-
-<img src=https://hexo-1300845384.cos.ap-guangzhou.myqcloud.com/Openvpn/12.jpg >
-
-<p>最后，点击OpenVPN/MS-SSTP设置，UDP端口设置为53，然后生成配置样本文件</p>
-<img src=https://hexo-1300845384.cos.ap-guangzhou.myqcloud.com/Openvpn/13.jpg >
-
-
-<p>下载一个OpenVPN，导入配置文件l3就可以连接上网了</p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/09/12/SoftEther/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -391,23 +415,14 @@
       
           <h1 id="网易云UnblockNeteaseMusic"><a href="#网易云UnblockNeteaseMusic" class="headerlink" title="网易云UnblockNeteaseMusic"></a><strong>网易云UnblockNeteaseMusic</strong></h1><p>搭建前准备：<br>一个centos虚拟机或有个服务器最好</p>
 <p>GitHub项目地址：<br><a href="https://github.com/nondanee/UnblockNeteaseMusic" target="_blank" rel="noopener">https://github.com/nondanee/UnblockNeteaseMusic</a></p>
-<hr>
-<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><h3 id="1、安装Nodejs"><a href="#1、安装Nodejs" class="headerlink" title="1、安装Nodejs"></a>1、安装Nodejs</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">#Debian/Ubuntu系统</span><br><span class="line">curl -sL https://deb.nodesource.com/setup_10.x | bash -</span><br><span class="line">apt install -y nodejs git </span><br><span class="line"></span><br><span class="line">#CentOS系统</span><br><span class="line">curl -sL https://rpm.nodesource.com/setup_10.x | bash -</span><br><span class="line">yum install nodejs git -y</span><br></pre></td></tr></table></figure>
-<h3 id="2、安装UnblockNeteaseMusic"><a href="#2、安装UnblockNeteaseMusic" class="headerlink" title="2、安装UnblockNeteaseMusic"></a>2、安装UnblockNeteaseMusic</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/nondanee/UnblockNeteaseMusic.git </span><br><span class="line"></span><br><span class="line">cd UnblockNeteaseMusic</span><br><span class="line"></span><br><span class="line">node app.js</span><br></pre></td></tr></table></figure>
-<p>行端口默认为8080，需要想修改可以编辑app.js文件的config.port对应的数值，或者使用命令：</p>
-<p><code>node app.js -p 4567</code></p>
-<p>#这里默认修改4567，自行调整</p>
-<h3 id="3、开机自启"><a href="#3、开机自启" class="headerlink" title="3、开机自启"></a>3、开机自启</h3><p>这里使用Systemd进程守护，只适用于CentOS 7、Debian 8+、Ubuntu 16+等。</p>
-<p>#修改下ExecStartPre源码路径即可，然后一起复制到SSH运行 </p>
-<p><code>cat &gt; /etc/systemd/system/UnblockNeteaseMusic.service &lt;&lt;EOF</code></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">[Unit] Description=UnblockNeteaseMusic </span><br><span class="line">After=network.target </span><br><span class="line">Wants=network.target </span><br><span class="line"></span><br><span class="line">[Service] Type=simple PIDFile=/var/run/UnblockNeteaseMusic.pid WorkingDirectory=/root/UnblockNeteaseMusic </span><br><span class="line">ExecStart=$(command -v node) app.js -p 4567 RestartPreventExitStatus=23 </span><br><span class="line">Restart=always </span><br><span class="line"></span><br><span class="line">[Install] WantedBy=multi-user.target </span><br><span class="line">EOF</span><br></pre></td></tr></table></figure>
-
-<p>启动并开机自启：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl start UnblockNeteaseMusic</span><br><span class="line">systemctl enable UnblockNeteaseMusic</span><br></pre></td></tr></table></figure>
-
-
-<h2 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h2><p>在window端网易云客户端设置 &gt; 工具 &gt; 自定义代理 &gt; HTTP代理，填上ip地址端口号，重启网易云即可。</p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/09/08/UnblockNeteaseMusic/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -983,67 +998,12 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/06/%E8%A7%89%E5%BE%97OK%E5%8F%AF%E4%BB%A5%E8%AF%B7%E4%BD%9C%E8%80%85%E5%96%9D%E5%92%96%E5%95%A1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/head.png">
-      <meta itemprop="name" content="Yezhilong">
-      <meta itemprop="description" content="记录生活和学习，做自己喜欢的事">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="叶智龙">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/12/06/%E8%A7%89%E5%BE%97OK%E5%8F%AF%E4%BB%A5%E8%AF%B7%E4%BD%9C%E8%80%85%E5%96%9D%E5%92%96%E5%95%A1/" class="post-title-link" itemprop="url">如果觉得OK可以请作者喝咖啡</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-12-06 15:26:51" itemprop="dateCreated datePublished" datetime="2019-12-06T15:26:51+08:00">2019-12-06</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <pre><code>如果觉得OK可以请作者喝咖啡</code></pre><p>tag:<img src="https://hexo-1300845384.cos.ap-guangzhou.myqcloud.com/alipay.jpg" width = "200" height = "200" div align=right /></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+  </nav>
 
 
 
@@ -1088,20 +1048,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">10</span>
+          <span class="site-state-item-count">11</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-count">4</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-count">4</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -1188,8 +1148,6 @@
   </div>
 
   
-  
-  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
   <script src="/lib/anime.min.js"></script>
   <script src="/lib/velocity/velocity.min.js"></script>
   <script src="/lib/velocity/velocity.ui.min.js"></script>

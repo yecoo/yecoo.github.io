@@ -45,13 +45,13 @@
   };
 </script>
 
-  <meta name="description" content="网易云UnblockNeteaseMusic搭建前准备：一个centos虚拟机或有个服务器最好 GitHub项目地址：https:&#x2F;&#x2F;github.com&#x2F;nondanee&#x2F;UnblockNeteaseMusic  安装1、安装Nodejs1234567#Debian&#x2F;Ubuntu系统curl -sL https:&#x2F;&#x2F;deb.nodesource.com&#x2F;setup_10.x | bash -ap">
+  <meta name="description" content="网易云UnblockNeteaseMusic搭建前准备：一个centos虚拟机或有个服务器最好 GitHub项目地址：https:&#x2F;&#x2F;github.com&#x2F;nondanee&#x2F;UnblockNeteaseMusic">
 <meta name="keywords" content="UnblockNeteaseMusic">
 <meta property="og:type" content="article">
 <meta property="og:title" content="网易云UnblockNeteaseMusic">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;09&#x2F;08&#x2F;UnblockNeteaseMusic&#x2F;index.html">
 <meta property="og:site_name" content="叶智龙">
-<meta property="og:description" content="网易云UnblockNeteaseMusic搭建前准备：一个centos虚拟机或有个服务器最好 GitHub项目地址：https:&#x2F;&#x2F;github.com&#x2F;nondanee&#x2F;UnblockNeteaseMusic  安装1、安装Nodejs1234567#Debian&#x2F;Ubuntu系统curl -sL https:&#x2F;&#x2F;deb.nodesource.com&#x2F;setup_10.x | bash -ap">
+<meta property="og:description" content="网易云UnblockNeteaseMusic搭建前准备：一个centos虚拟机或有个服务器最好 GitHub项目地址：https:&#x2F;&#x2F;github.com&#x2F;nondanee&#x2F;UnblockNeteaseMusic">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2020-09-08T13:55:46.316Z">
 <meta name="twitter:card" content="summary">
@@ -267,6 +267,7 @@
       
         <h1 id="网易云UnblockNeteaseMusic"><a href="#网易云UnblockNeteaseMusic" class="headerlink" title="网易云UnblockNeteaseMusic"></a><strong>网易云UnblockNeteaseMusic</strong></h1><p>搭建前准备：<br>一个centos虚拟机或有个服务器最好</p>
 <p>GitHub项目地址：<br><a href="https://github.com/nondanee/UnblockNeteaseMusic" target="_blank" rel="noopener">https://github.com/nondanee/UnblockNeteaseMusic</a></p>
+<a id="more"></a>
 <hr>
 <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><h3 id="1、安装Nodejs"><a href="#1、安装Nodejs" class="headerlink" title="1、安装Nodejs"></a>1、安装Nodejs</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">#Debian/Ubuntu系统</span><br><span class="line">curl -sL https://deb.nodesource.com/setup_10.x | bash -</span><br><span class="line">apt install -y nodejs git </span><br><span class="line"></span><br><span class="line">#CentOS系统</span><br><span class="line">curl -sL https://rpm.nodesource.com/setup_10.x | bash -</span><br><span class="line">yum install nodejs git -y</span><br></pre></td></tr></table></figure>
 <h3 id="2、安装UnblockNeteaseMusic"><a href="#2、安装UnblockNeteaseMusic" class="headerlink" title="2、安装UnblockNeteaseMusic"></a>2、安装UnblockNeteaseMusic</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/nondanee/UnblockNeteaseMusic.git </span><br><span class="line"></span><br><span class="line">cd UnblockNeteaseMusic</span><br><span class="line"></span><br><span class="line">node app.js</span><br></pre></td></tr></table></figure>
@@ -276,7 +277,7 @@
 <h3 id="3、开机自启"><a href="#3、开机自启" class="headerlink" title="3、开机自启"></a>3、开机自启</h3><p>这里使用Systemd进程守护，只适用于CentOS 7、Debian 8+、Ubuntu 16+等。</p>
 <p>#修改下ExecStartPre源码路径即可，然后一起复制到SSH运行 </p>
 <p><code>cat &gt; /etc/systemd/system/UnblockNeteaseMusic.service &lt;&lt;EOF</code></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">[Unit] Description=UnblockNeteaseMusic </span><br><span class="line">After=network.target </span><br><span class="line">Wants=network.target </span><br><span class="line"></span><br><span class="line">[Service] Type=simple PIDFile=/var/run/UnblockNeteaseMusic.pid WorkingDirectory=/root/UnblockNeteaseMusic </span><br><span class="line">ExecStart=$(command -v node) app.js -p 4567 RestartPreventExitStatus=23 </span><br><span class="line">Restart=always </span><br><span class="line"></span><br><span class="line">[Install] WantedBy=multi-user.target </span><br><span class="line">EOF</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">[Unit]</span><br><span class="line">Description=UnblockNeteaseMusic</span><br><span class="line">After=network.target</span><br><span class="line">Wants=network.target</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line">Type=simple</span><br><span class="line">PIDFile=/var/run/UnblockNeteaseMusic.pid</span><br><span class="line">WorkingDirectory=/root/UnblockNeteaseMusic</span><br><span class="line">ExecStart=$(command -v node) app.js -p 4567</span><br><span class="line">RestartPreventExitStatus=23</span><br><span class="line">Restart=always</span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure>
 
 <p>启动并开机自启：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl start UnblockNeteaseMusic</span><br><span class="line">systemctl enable UnblockNeteaseMusic</span><br></pre></td></tr></table></figure>
@@ -381,20 +382,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">10</span>
+          <span class="site-state-item-count">11</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-count">4</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-count">4</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -481,8 +482,6 @@
   </div>
 
   
-  
-  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
   <script src="/lib/anime.min.js"></script>
   <script src="/lib/velocity/velocity.min.js"></script>
   <script src="/lib/velocity/velocity.ui.min.js"></script>
